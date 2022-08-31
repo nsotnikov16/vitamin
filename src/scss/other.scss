@@ -24,7 +24,6 @@
             margin-bottom: 20px;
         }
     }
-
 }
 
 .phone {
@@ -53,6 +52,41 @@
     }
 }
 
+.socials {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transform: scale(1);
+        transition: transform 0.3s ease;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: block;
+        &:hover {
+            transform: scale(1.05);
+        }
+        margin-right: 32px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.whatsapp {
+    background-image: url(../img/messengers/whatsapp.png);
+}
+
+.viber {
+    background-image: url(../img/messengers/viber.png);
+}
+
+.telegram {
+    background-image: url(../img/messengers/telegram.png);
+}
+
 .bg-gray {
     background-color: rgba(24, 0, 71, 0.04);
 }
@@ -60,7 +94,6 @@
 .color-white {
     color: white;
 }
-
 
 .bg-purple {
     background-color: #180047;

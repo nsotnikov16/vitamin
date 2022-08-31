@@ -102,7 +102,7 @@
             object-fit: contain;
             margin-right: 62px;
 
-            @media(max-width: 1500px) {
+            @media (max-width: 1500px) {
                 margin-right: 25px;
             }
 
@@ -144,6 +144,8 @@
             padding-top: 33px;
         }
         transform: translateY(-1px);
+
+
         &::after,
         &::before {
             position: absolute;
@@ -163,4 +165,5 @@
             left: -100%;
         }
     }
+
 }

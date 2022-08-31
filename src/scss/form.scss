@@ -6,17 +6,43 @@
         .page__container {
             display: flex;
             justify-content: space-between;
+            @media (max-width: 1279px) {
+                flex-direction: column;
+            }
         }
         > img {
             position: absolute;
             &:first-of-type {
                 left: 0;
                 bottom: 83px;
+                width: 865px;
+
+                @media (max-width: 1919px) {
+                    width: calc(680px + (185 + 185 * 0.7) * ((100vw - 1280px) / 1919));
+                }
+                @media (max-width: 1280px) {
+                    bottom: 170px;
+                }
+
+                @media (max-width: 1279px) {
+                    bottom: 0;
+                    width: 417px;
+                    top: 100px;
+                }
             }
 
             &:last-of-type {
                 right: -10px;
                 bottom: 0;
+
+                @media (max-width: 1280px) {
+                    display: none;
+                }
+
+                @media (max-width: 1024px) {
+                    display: initial;
+                    width: 121px;
+                }
             }
         }
 
@@ -30,16 +56,31 @@
     margin-top: 115px;
     color: white;
     flex-basis: 50%;
+
+    @media (max-width: 1279px) {
+        margin-top: 240px;
+    }
+
+    @media (max-width: 1024px) {
+        margin-top: 275px;
+    }
+
     &__title {
         font-weight: 700;
         font-size: 30px;
         line-height: 140%;
         margin-bottom: 50px;
+
+        @media (max-width: 767px) {
+            font-size: 24px;
+            margin-bottom: 35px;
+        }
     }
 
     &__row {
         position: relative;
         margin-bottom: 56px;
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -47,6 +88,7 @@
         label,
         textarea {
             color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
         }
 
         label {
@@ -138,6 +180,11 @@
         font-size: 16px;
         line-height: 140%;
         display: none;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+            line-height: 120%;
+        }
     }
 
     &__submit {
@@ -150,6 +197,20 @@
             line-height: 170%;
             color: rgba(255, 255, 255, 0.7);
             max-width: 363px;
+
+            @media (max-width: 1500px) {
+                margin-left: 40px;
+            }
+
+            @media (max-width: 767px) {
+                margin-left: 13px;
+                margin-top: -5px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            align-items: start;
         }
     }
 
@@ -157,10 +218,20 @@
         background-color: white;
         font-weight: 500;
         margin: 0;
+        flex-shrink: 0;
         &:hover {
             background-color: transparent;
             border: 1px solid white;
             color: white;
+        }
+
+        @media (max-width: 1500px) {
+            width: 180px;
+            min-width: initial;
+        }
+
+        @media (max-width: 767px) {
+            width: 160px;
         }
     }
 }

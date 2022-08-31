@@ -25,7 +25,9 @@ body {
   &__container {
     margin: 0 auto;
     max-width: 1718px;
-    /* padding: 0 100px; */
+    &_short {
+      max-width: 1434px;
+    }
 
     @media (max-width: 1750px) {
       padding: 0 100px;
@@ -74,3 +76,6 @@ body {
 
 /* Форма */
 @import "form";
+
+/* Подвал */
+@import "footer";
