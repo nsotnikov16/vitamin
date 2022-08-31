@@ -1,0 +1,36 @@
+<section class="section section_form bg-purple">
+    <div class="page__container" style="max-width: 1434px;">
+        <h2 class="section__title color-white" style="max-width: 717px;">@@title</h2>
+        <form class="form">
+            <h3 class="form__title">Давайте обсудим его. Продумаем. И сделаем!</h3>
+            <div class="form__row">
+                <input type="text" id="name" minlength="2" autocomplete="off">
+                <label for="name">Как вас зовут? <span>*</span></label>
+                <p class="form__error">Пожалуйста, укажите ваше имя</p>
+            </div>
+            <div class="form__row">
+                <input type="text" id="contact" minlength="2" autocomplete="off" required>
+                <label for="contact">Как с вами связаться? <span>*</span></label>
+                <p class="form__error">Пожалуйста, укажите контактные данные для связи</p>
+            </div>
+
+            <div class="form__row">
+                <textarea id="about" autocomplete="off"></textarea>
+                <label for="about">Расскажите о своём проекте</label>
+            </div>
+
+            <div class="form__row form__row_file">
+                <input type="file" name="file" id="file">
+                <label for="file">Прикрепить файл</label>
+            </div>
+
+            <div class="form__submit">
+                <button class="btn btn_all">Отправить</button>
+                <p>Нажимая кнопку «Отправить» я соглашаюсь с политикой конфиденциальности и обработки персональных
+                    данных</p>
+            </div>
+        </form>
+    </div>
+    <img src="./img/form/1.png" alt="1">
+    <img src="./img/form/2.png" alt="2">
+</section>

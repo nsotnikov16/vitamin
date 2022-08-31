@@ -1,0 +1,42 @@
+.pride {
+    margin-top: -30px;
+    display: flex;
+    margin-bottom: 106px;
+    @media (max-width: 1280px) {
+        margin-bottom: 90px;
+    }
+
+    justify-content: space-between;
+    &__left {
+        margin-top: 62px;
+        flex-basis: 40%;
+    }
+
+    &__right {
+        flex-basis: 50%;
+    }
+
+    @media (max-width: 1280px) {
+        &__left {
+            flex-basis: 45%;
+        }
+    }
+
+    @media (max-width: 1279px) {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        margin-top: 0;
+        &__left {
+            margin-top: 10px;
+            flex-basis: initial;
+            margin-bottom: 52px;
+        }
+
+        &__right {
+            flex-basis: initial;
+        }
+    }
+}

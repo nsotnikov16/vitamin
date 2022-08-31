@@ -2,9 +2,24 @@
 
 <body>
 	<div class="page">
+		<!-- Шапка -->
 		@@include('html/header.html', {})
+
+		<!-- Баннер -->
 		@@include('html/banners/main.html', {})
+
+		<!-- Решим ваши задачи -->
 		@@include('html/tasks.html', {})
+
+		<!-- Наши кейсы -->
+		@@include('html/cases.html', {})
+
+		<!-- Нам есть чем гордиться -->
+		@@include('html/pride.html', {})
+
+		<!-- Нужна разработка проекта? -->
+		@@include('html/form.html', {"title": 'Нужна разработка проекта?'})
+
 	</div>
 
 	@@include('html/scripts.html', {})

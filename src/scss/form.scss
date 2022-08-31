@@ -1,0 +1,166 @@
+.section {
+    &_form {
+        overflow: hidden;
+        padding-bottom: 127px;
+        position: relative;
+        .page__container {
+            display: flex;
+            justify-content: space-between;
+        }
+        > img {
+            position: absolute;
+            &:first-of-type {
+                left: 0;
+                bottom: 83px;
+            }
+
+            &:last-of-type {
+                right: -10px;
+                bottom: 0;
+            }
+        }
+
+        &__title {
+            flex-basis: 42%;
+        }
+    }
+}
+
+.form {
+    margin-top: 115px;
+    color: white;
+    flex-basis: 50%;
+    &__title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 140%;
+        margin-bottom: 50px;
+    }
+
+    &__row {
+        position: relative;
+        margin-bottom: 56px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        input,
+        label,
+        textarea {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            span {
+                color: red;
+            }
+            cursor: text;
+        }
+
+        input {
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            width: 100%;
+
+            &:focus + label {
+                display: none;
+            }
+
+            &:focus {
+                color: white;
+                border-bottom: 1px solid white;
+            }
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+            height: 103px;
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            outline: none;
+            &:focus + label {
+                display: none;
+            }
+        }
+
+        input,
+        textarea {
+            &.no-empty {
+                border-bottom: 1px solid white;
+                color: white;
+            }
+
+            &.invalid {
+                border-bottom: 1px solid rgba(255, 0, 0, 0.7);
+                color: rgba(255, 0, 0, 0.7);
+            }
+        }
+
+        &_file {
+            margin-top: -30px;
+            margin-bottom: 44px;
+            input {
+                display: none;
+            }
+
+            label {
+                position: initial;
+                display: flex;
+                align-items: center;
+                color: white;
+                cursor: pointer;
+                width: max-content;
+
+                &::before {
+                    content: "";
+                    background-image: url(../img/form/skrepka.svg);
+                    background-size: 25px 25px;
+                    width: 25px;
+                    height: 25px;
+                    background-repeat: no-repeat;
+                    flex-shrink: 0;
+                    margin-right: 18px;
+                }
+            }
+        }
+    }
+
+    &__error {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        color: red;
+        opacity: 0.7;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        display: none;
+    }
+
+    &__submit {
+        display: flex;
+        align-items: center;
+        p {
+            margin-left: 50px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 170%;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 363px;
+        }
+    }
+
+    .btn_all {
+        background-color: white;
+        font-weight: 500;
+        margin: 0;
+        &:hover {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+    }
+}

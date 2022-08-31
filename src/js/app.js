@@ -22,3 +22,33 @@ Array.from([headerMenuCopy, headerContactCopy]).forEach(element => {
     headerMobile.append(element)
 });
 burger.addEventListener('click', () => header.classList.toggle('open'))
+
+
+const form = document.querySelector('.form')
+if (form) {
+    const inputs = form.querySelectorAll('input')
+    const textareas = form.querySelectorAll('textarea')
+    Array.from([...inputs, ...textareas]).forEach(element => element.addEventListener('input', () => {
+        const parent = element.parentNode
+        const error = parent.querySelector('.form__error')
+        if (parent.classList.contains('form__row_file')) return;
+
+        const label = element.nextElementSibling
+        if (element.value) {
+            label.style.display = 'none'
+            element.classList.add('no-empty')
+        } else {
+            label.style.display = ''
+            element.classList.remove('no-empty')
+        }
+
+        if (!element.validity.valid && error) {
+            error.style.display = 'block'
+            element.classList.add('invalid')
+        } else {
+            error.style.display = 'none'
+            element.classList.remove('invalid')
+        }
+
+    }))
+}

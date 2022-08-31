@@ -25,7 +25,11 @@ body {
   &__container {
     margin: 0 auto;
     max-width: 1718px;
-    padding: 0 100px;
+    /* padding: 0 100px; */
+
+    @media (max-width: 1750px) {
+      padding: 0 100px;
+    }
 
     @media (max-width: 1279px) {
       padding: 0 30px;
@@ -44,10 +48,29 @@ body {
   }
 }
 
+/* Другое */
 @import "other";
 
+/* Контент */
+@import "content";
+
+/* Шапка */
 @import "header";
 
+/* Баннер */
 @import "banner";
 
+/* Задачи */
 @import "tasks";
+
+/* Кейсы */
+@import "cases";
+
+/* Нам есть чем гордиться */
+@import "pride";
+
+/* Достижения */
+@import "achievements";
+
+/* Форма */
+@import "form";
