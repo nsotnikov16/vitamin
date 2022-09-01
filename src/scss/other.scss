@@ -24,6 +24,15 @@
             margin-bottom: 20px;
         }
     }
+
+    &_faq {
+        @media(max-width: 767px) {
+            .section__title {
+                max-width: 320px;
+            }
+        }
+        
+    }
 }
 
 .phone {

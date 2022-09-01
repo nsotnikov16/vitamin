@@ -1,0 +1,34 @@
+@@include('html/head.html', {"title": "Разработка"})
+
+<body>
+    <div class="page">
+        <!-- Шапка -->
+        @@include('html/header.html', {})
+
+        <!-- Баннер -->
+        @@include('html/banners/dev.html', {})
+
+        <!-- Как мы это делаем? -->
+        @@include('html/doits/dev.html', {})
+
+        <!-- Цены -->
+        @@include('html/prices/prices.html', {})
+
+        <!-- Наши кейсы -->
+        @@include('html/cases.html', {})
+
+        <!-- Что часто спрашивают -->
+        @@include('html/faq.html', {})
+
+        <!-- Нужна разработка проекта? -->
+        @@include('html/form.html', {"title": 'Нужна разработка проекта?'})
+
+        <!-- Подвал -->
+        @@include('html/footer.html', {})
+
+    </div>
+
+    @@include('html/scripts.html', {})
+</body>
+
+</html>

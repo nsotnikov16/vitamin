@@ -11,7 +11,6 @@
     }
 
     &__subtitle {
-        max-width: 700px;
         font-weight: 500;
         font-size: 24px;
         line-height: 170%;
@@ -25,7 +24,6 @@
         }
 
         &__subtitle {
-            max-width: 720px;
             margin-top: 40px;
         }
     }
@@ -37,20 +35,17 @@
 
         &__subtitle {
             font-size: calc(16px + (8 + 8 * 0.7) * ((100vw - 768px) / 1279));
-            max-width: calc(472px + (400 + 400 * 0.7) * ((100vw - 768px) / 1279));
         }
     }
 
     @media (max-width: 767px) {
         padding: 85px 0;
         &__title {
-           
             font-size: 30px;
         }
 
         &__subtitle {
             margin-top: 20px;
-            max-width: 95%;
             font-size: 16px;
         }
     }
@@ -67,8 +62,57 @@
             @media (max-width: 1279px) and (min-width: 768px) {
                 max-width: calc(531px + (450 + 450 * 0.7) * ((100vw - 768px) / 1279));
             }
+        }
 
-            
+        .banner__subtitle {
+            max-width: 700px;
+
+            @media (max-width: 1280px) {
+                max-width: 720px;
+            }
+
+            @media (max-width: 1279px) {
+                max-width: calc(472px + (400 + 400 * 0.7) * ((100vw - 768px) / 1279));
+            }
+
+            @media (max-width: 767px) {
+                max-width: 95%;
+            }
+        }
+    }
+
+    &_dev {
+        padding-bottom: 50px;
+        @media(max-width: 1280px) {
+            padding-bottom: 0;
+        }
+        .banner__title {
+            @media (min-width: 1281px) {
+                max-width: 1121px;
+            }
+            @media (max-width: 1280px) {
+                max-width: 966px;
+            }
+
+            @media (max-width: 1279px) and (min-width: 768px) {
+                max-width: calc(480px + (486 + 486 * 0.7) * ((100vw - 768px) / 1279));
+            }
+        }
+
+        .banner__subtitle {
+            max-width: 860px;
+
+            @media (max-width: 1280px) {
+                max-width: 720px;
+            }
+
+            @media (max-width: 1279px) {
+                max-width: calc(472px + (400 + 400 * 0.7) * ((100vw - 768px) / 1279));
+            }
+
+            @media (max-width: 767px) {
+                max-width: 95%;
+            }
         }
     }
 }

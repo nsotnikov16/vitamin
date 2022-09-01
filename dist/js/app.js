@@ -12,7 +12,7 @@ testWebP(function (support) {
     document.documentElement.classList.add(className);
 });
 
-
+/* Шапка */
 const header = document.querySelector('.header')
 const headerContactCopy = header.querySelector('.header__contact').cloneNode(true)
 const headerMenuCopy = header.querySelector('.header__menu').cloneNode(true)
@@ -24,18 +24,29 @@ Array.from([headerMenuCopy, headerContactCopy]).forEach(element => {
 burger.addEventListener('click', () => header.classList.toggle('open'))
 
 
+/* Форма */
 const form = document.querySelector('.form')
 if (form) {
+    const phone = form.querySelector('#phone')
+    let maskPhone
+    if (phone) {
+        let im = new Inputmask("+7 (999)-999-99-99", { showMaskOnHover: false, alias: 'phonebe' });
+        maskPhone = im.mask(phone)
+    }
+
     const inputs = form.querySelectorAll('input')
     const textareas = form.querySelectorAll('textarea')
     Array.from([...inputs, ...textareas]).forEach(element => {
         const parent = element.parentNode
         const error = parent.querySelector('.form__error')
+        const label = element.nextElementSibling
         if (error) error.dataset.text = error.textContent
-
+        if (element.required) label.innerHTML = label.innerHTML + ' <span>*</span>'
         element.addEventListener('input', () => {
+            const message = element.validationMessage
             if (parent.classList.contains('form__row_file')) return;
-            const label = element.nextElementSibling
+
+
             if (element.value) {
                 label.style.display = 'none'
                 element.classList.add('no-empty')
@@ -44,20 +55,39 @@ if (form) {
                 element.classList.remove('no-empty')
             }
 
-            if (!element.validity.valid && error) {
-                const message = element.validationMessage
-                if (message && element.value) {
-                    error.textContent = message
+            if (element != phone) {
+                if (!element.validity.valid && error) {
+                    if (message && element.value) {
+                        error.textContent = message
+                    } else {
+                        error.textContent = error.dataset.text
+                    }
+                    error.style.display = 'block'
+                    element.classList.add('invalid')
                 } else {
-                    error.textContent = error.dataset.text
+                    if (error) error.style.display = 'none'
+                    element.classList.remove('invalid')
                 }
-                error.style.display = 'block'
-                element.classList.add('invalid')
-            } else {
-                if (error) error.style.display = 'none'
-
-                element.classList.remove('invalid')
+            } else if (element == phone) {
+                if (!maskPhone.isComplete() && error) {
+                    error.style.display = 'block'
+                    element.classList.add('invalid')
+                } else {
+                    if (error) error.style.display = 'none'
+                    element.classList.remove('invalid')
+                }
             }
+
+
         })
+    })
+}
+
+/* Спойлеры */
+const spoilers = document.querySelectorAll('.spoiler')
+if (spoilers.length > 0) {
+    spoilers.forEach(spoiler => {
+        const top = spoiler.querySelector('.spoiler__top')
+        top.addEventListener('click', () => spoiler.classList.toggle('spoiler_open'))
     })
 }
