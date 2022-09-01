@@ -441,6 +441,12 @@ body {
 
 .phone {
   font-weight: 500;
+  transform: scale(1);
+  transition: transform 0.25s linear;
+}
+.phone:hover {
+  transform: scale(1.07);
+  color: red;
 }
 
 .btn {
@@ -450,11 +456,17 @@ body {
   padding: 16px 25px;
   font-size: 18px;
   border-radius: 50px;
+  transition: background-color 0.2s linear;
 }
 .btn_red {
+  border: 1px solid #ff0000;
   background-color: #ff0000;
   color: #ffffff;
   font-weight: 700;
+}
+.btn_red:hover {
+  background-color: white;
+  color: #ff0000;
 }
 .btn_all {
   border: 1px solid #0b011d;
@@ -462,6 +474,11 @@ body {
   margin: 38px auto 0;
   line-height: 21px;
   min-width: 200px;
+  background-color: white;
+}
+.btn_all:hover {
+  background-color: #0b011d;
+  color: white;
 }
 
 .socials {
@@ -509,6 +526,10 @@ body {
 
 .bg-purple {
   background-color: #180047;
+}
+
+nav a:hover {
+  color: red;
 }
 
 /* Контент */
@@ -1188,6 +1209,8 @@ body {
 }
 
 .case {
+  transform: scale(1);
+  transition: transform 0.25s linear;
   height: 515px;
   position: relative;
 }
@@ -1205,6 +1228,9 @@ body {
   .case {
     height: 436px;
   }
+}
+.case:hover {
+  transform: scale(1.05);
 }
 .case:hover::after {
   position: absolute;
@@ -1558,6 +1584,8 @@ body {
 .form__row_file {
   margin-top: -30px;
   margin-bottom: 44px;
+  display: flex;
+  align-items: center;
 }
 .form__row_file input {
   display: none;

@@ -62,6 +62,8 @@ burger.addEventListener('click', () => header.classList.toggle('open'))
 /* Форма */
 const form = document.querySelector('.form')
 if (form) {
+    let files = [];
+
     const inputs = form.querySelectorAll('input')
     const textareas = form.querySelectorAll('textarea')
     Array.from([...inputs, ...textareas]).forEach(element => {
@@ -73,9 +75,18 @@ if (form) {
         if (element.required) label.innerHTML = label.innerHTML + ' <span>*</span>'
         element.addEventListener('input', () => {
             const message = element.validationMessage
+
+            if (element.type === 'file') {
+                files = [...element.files]
+                let fileName = files[0].name
+                if (files.length > 0) {
+                    parent.insertAdjacentHTML('beforeend', `<div>${fileName.length > 40 ? '...' + fileName.slice(fileName.length - 40) : fileName}</div>`);
+                }
+            }
+
             if (parent.classList.contains('form__row_file')) return;
 
-            if(isTel && element.value == '+7') element.value = ''
+            if (isTel && element.value == '+7') element.value = ''
 
             if (element.value) {
                 label.style.display = 'none'
@@ -84,7 +95,6 @@ if (form) {
                 label.style.display = ''
                 element.classList.remove('no-empty')
             }
-
 
             if (!element.validity.valid && error) {
                 if (message && element.value) {

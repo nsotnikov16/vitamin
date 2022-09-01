@@ -26,17 +26,22 @@
     }
 
     &_faq {
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             .section__title {
                 max-width: 320px;
             }
         }
-        
     }
 }
 
 .phone {
     font-weight: 500;
+    transform: scale(1);
+    transition: transform 0.25s linear;
+    &:hover {
+        transform: scale(1.07);
+        color: red;
+    }
 }
 .btn {
     display: flex;
@@ -46,10 +51,16 @@
 
     font-size: 18px;
     border-radius: 50px;
+    transition: background-color 0.2s linear;
     &_red {
+        border: 1px solid #ff0000;
         background-color: #ff0000;
         color: #ffffff;
         font-weight: 700;
+        &:hover {
+            background-color: white;
+            color: #ff0000;
+        }
     }
 
     &_all {
@@ -58,6 +69,11 @@
         margin: 38px auto 0;
         line-height: 21px;
         min-width: 200px;
+        background-color: white;
+        &:hover {
+            background-color: #0b011d;
+            color: white;
+        }
     }
 }
 
@@ -106,4 +122,9 @@
 
 .bg-purple {
     background-color: #180047;
+}
+
+
+nav a:hover {
+    color: red;
 }
