@@ -188,4 +188,18 @@
             }
         }
     }
+
+    &.open_fixed {
+        position: fixed;
+        width: 100vw;
+        background-color: white;
+        z-index: 9999999999;
+        * {
+            z-index: 99999999999;
+        }
+
+        .header__mobile {
+            height: 100vh;
+        }
+    }
 }

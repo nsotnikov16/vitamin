@@ -6,9 +6,8 @@
         flex-direction: column;
     }
 
-
     .section__title {
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             font-size: 36px;
         }
     }
@@ -60,7 +59,7 @@
             grid-template-columns: 1.5fr 1fr 1fr;
         }
 
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             grid-template-columns: 1.2fr 1fr 1fr;
         }
     }
@@ -82,7 +81,7 @@
 
     .spoiler__name {
         font-size: 48px;
-        word-break: break-all;
+        
         @media (max-width: 1024px) {
             font-size: 36px;
         }
@@ -94,6 +93,7 @@
         }
         .spoiler__name {
             font-size: 24px;
+            word-break: break-all;
             @media (max-width: 1024px) {
                 font-size: 18px;
             }
@@ -113,7 +113,7 @@
                 margin-bottom: 0;
             }
 
-            @media(max-width: 767px) {
+            @media (max-width: 767px) {
                 font-size: 16px;
             }
         }
@@ -148,11 +148,45 @@
         }
     }
 
-    .spoiler_small .spoiler__btn{
-        @media(max-width: 1024px) {
-            &::before, &::after {
+    .spoiler_small .spoiler__btn {
+        @media (max-width: 1024px) {
+            &::before,
+            &::after {
                 width: 18px;
             }
+        }
+    }
+
+    .col-2 {
+        grid-template-columns: 2fr 1fr !important;
+        .spoiler__name {
+            word-break: initial;
+        }
+
+        @media(max-width: 1024px) {
+            grid-template-columns: 2.5fr 1fr !important;
+        }
+        @media(max-width: 767px) {
+            grid-template-columns: 2.3fr 1fr !important;
+        }
+
+        @media(max-width: 420px) {
+            grid-template-columns: 1.3fr 1fr !important;
+
+        }
+    }
+
+    &_promotion {
+        @media(max-width: 560px) {
+            .prices__grid {
+                grid-template-columns: 1.5fr 0.8fr 1fr;
+            }
+        }
+    }
+
+    &_adv {
+        .spoiler_small .spoiler__name {
+            word-break: initial;
         }
     }
 }

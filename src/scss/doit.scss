@@ -1,6 +1,7 @@
 .doit {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 80px;
 
     @media (max-width: 1024px) {
         flex-direction: column;
