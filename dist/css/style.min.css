@@ -1396,6 +1396,9 @@ nav a:hover {
 .prices .spoiler__name {
   font-size: 48px;
 }
+.prices .spoiler_small .spoiler__top {
+  padding: 15px 0;
+}
 .prices .spoiler_small .spoiler__name {
   font-size: 24px;
 }
