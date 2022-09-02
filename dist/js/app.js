@@ -192,3 +192,39 @@ function up() {
     } else clearTimeout(t);
     return false;
 }
+
+
+
+/* Нижняя панель на мобилке */
+const bottomPanel = document.querySelector('.panel')
+const setPositionPanel = () => {
+    const scroll = Math.ceil(window.scrollY)
+    if (scroll > 560) bottomPanel.classList.remove('no-fixed')
+    if (scroll <= 560) bottomPanel.classList.add('no-fixed')
+}
+setPositionPanel()
+window.addEventListener('scroll', setPositionPanel)
+
+const panel = document.querySelector('.panel')
+if (panel) {
+    const panelSocials = panel.querySelector('.panel__socials')
+    const links = panelSocials.querySelectorAll('a')
+    links.forEach((link, index) => {
+
+        if (index === 0) {
+
+            link.addEventListener('click', (e) => {
+                e.preventDefault()
+                panelSocials.classList.toggle('panel__socials_open')
+            })
+        } else {
+
+            link.addEventListener('click', ({ target }) => {
+                console.log(target)
+                links[0].setAttribute('class', link.className)
+                panelSocials.classList.remove('panel__socials_open')
+            })
+        }
+
+    })
+}

@@ -26,6 +26,7 @@
     }
 
     &_faq {
+        padding-bottom: 90px;
         @media (max-width: 767px) {
             .section__title {
                 max-width: 320px;
@@ -91,8 +92,8 @@
         border-radius: 50%;
         transform: scale(1);
         transition: transform 0.3s ease;
-        background-size: 100%;
         background-repeat: no-repeat;
+        background-position: center center;
         display: block;
         &:hover {
             transform: scale(1.05);
@@ -105,15 +106,21 @@
 }
 
 .whatsapp {
-    background-image: url(../img/messengers/whatsapp.png);
+    background-image: url(../img/messengers/whatsapp.svg);
+    background-color: #29a71a;
+    background-size: 25px 25px;
 }
 
 .viber {
-    background-image: url(../img/messengers/viber.png);
+    background-image: url(../img/messengers/viber.svg);
+    background-color: #6f3faa;
+    background-size: 25px 25px;
 }
 
 .telegram {
-    background-image: url(../img/messengers/telegram.png);
+    background-image: url(../img/messengers/telegram.svg);
+    background-size: 22px 18px;
+    background-color: #039be5;
 }
 
 .bg-gray {
@@ -128,7 +135,6 @@
     background-color: #180047;
 }
 
-
 nav a:hover {
     color: red;
 }
@@ -139,4 +145,12 @@ nav a:hover {
     &:hover {
         transform: scale(1.05);
     }
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-bold {
+    font-weight: 700 !important;
 }
