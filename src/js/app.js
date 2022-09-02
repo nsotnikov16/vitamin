@@ -232,3 +232,60 @@ if (panel) {
     const menuButton = panel.querySelector('.panel__item')
     menuButton.addEventListener('click', () => header.className = 'header open open_fixed')
 }
+
+// Popups
+class Popup {
+    constructor(popupElement) {
+        this.popupElement = popupElement;
+        this._closeButton = this.popupElement.querySelector('.popup__close');
+        this._img = this.popupElement.querySelector('.popup__img') ?? ''
+        this._video = this.popupElement.querySelector('.video') ?? ''
+        this._videoClone = this._video ? this._video.innerHTML : ''
+        this._handleEscClose = this._handleEscClose.bind(this)
+        this._openingLinks = document.querySelectorAll(`[data-pointer="${this.popupElement.id}"]`)
+        this.setEventListeners()
+    }
+
+    open(el) {
+        document.body.style.overflow = "hidden";
+        this.popupElement.classList.add('popup_opened')
+        document.addEventListener('keydown', this._handleEscClose);
+        if (this._img && el.src) this._img.src = el.src
+        if (this._video) this._video.innerHTML = this._videoClone
+    }
+
+    close() {
+        this.popupElement.classList.remove('popup_opened');
+        document.body.style.overflow = "visible";
+        document.removeEventListener('keydown', this._handleEscClose);
+        if (this.popupElement.id === 'stories') stories.reset()
+        if (this._video) this._video.innerHTML = ''
+    }
+
+    _handleEscClose(evt) {
+        if (evt.keyCode === 27) {
+            this.close();
+        }
+    }
+
+    _handleOverlayClick(evt) {
+        if (evt.target === evt.currentTarget) {
+            this.close();
+        }
+    }
+
+    setEventListeners() {
+        this._openingLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); this.open(e.target) }))
+        this._closeButton.addEventListener('click', () => this.close());
+        this.popupElement.addEventListener('click', this._handleOverlayClick.bind(this));
+    }
+}
+
+const popups = document.querySelectorAll('.popup')
+let arrPopups = {}
+document.addEventListener('DOMContentLoaded', () => {
+    if (popups.length > 0) popups.forEach(item => {
+        const popup = new Popup(item)
+        arrPopups[item.id] = popup
+    })
+})

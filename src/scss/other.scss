@@ -155,7 +155,27 @@ nav a:hover {
     font-weight: 700 !important;
 }
 
-
 .no-wrap {
     white-space: nowrap;
+}
+
+.video {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    iframe {
+        width: 85vw;
+        height: 85vh;
+        border-radius: 8px;
+
+        @media (max-width: 1024px) {
+            height: 40vh;
+        }
+
+        @media (max-width: 767px) {
+            height: 30vh;
+        }
+    }
 }

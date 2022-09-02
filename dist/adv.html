@@ -62,13 +62,13 @@
         <div class="doit">
             <div class="doit__left">
                 <h2 class="section__title">Как мы это делаем?</h2>
-                <div class="doit__preview">
+                <div class="doit__preview" data-pointer="video">
                     <img src="./img/preview.png" alt="Preview">
                     <button class="doit__play"></button>
                 </div>
                 <p class="doit__text">За три минуты просто и ясно о том, как пойдет работа</p>
                 <p class="doit__author">Иван иванов, СЕО</p>
-                <button class="btn btn_all">Смотреть видео</button>
+                <button class="btn btn_all" data-pointer="video">Смотреть видео</button>
             </div>
             <div class="doit__right">
                 <div class="doit__info ">
@@ -551,6 +551,23 @@
             </svg>
             <p>Наверх</p>
         </div>
+    </div>
+</div>
+    
+    <!-- Модалки -->
+	<!-- Модалка фрейма видео -->
+<div id="video" class="popup popup_video">
+    <div class="popup__container">
+        <div class="popup__content">
+            <div class="video">
+
+                <!-- Убрать атрибуты width, height. В атрибуте allow убрать значение autoplay -->
+                <iframe src="https://www.youtube.com/embed/HRZ8r_OfmL4" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <button class="popup__close"><span>&#10006;</span></button>
     </div>
 </div>
 

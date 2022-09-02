@@ -564,6 +564,28 @@ nav a:hover {
   white-space: nowrap;
 }
 
+.video {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video iframe {
+  width: 85vw;
+  height: 85vh;
+  border-radius: 8px;
+}
+@media (max-width: 1024px) {
+  .video iframe {
+    height: 40vh;
+  }
+}
+@media (max-width: 767px) {
+  .video iframe {
+    height: 30vh;
+  }
+}
+
 /* Контент */
 .content h3,
 .content h2, .content .h3, .content .h2 {
@@ -588,6 +610,94 @@ nav a:hover {
   .content p {
     font-size: 16px;
     margin-bottom: 25px;
+  }
+}
+
+/* Модалки */
+.popup {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(51, 51, 51, 0.75);
+  overflow: auto;
+}
+.popup.popup_opened {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+  z-index: 999999999999;
+}
+.popup__container {
+  position: relative;
+  padding-top: 10px;
+}
+.popup__close {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  font-size: 35px;
+  color: white;
+}
+.popup__close:hover {
+  color: #eb4961;
+}
+@media (max-width: 767px) {
+  .popup__close {
+    top: -10px;
+    right: -5px;
+    font-size: 20px;
+  }
+}
+.popup__img {
+  max-width: 50vw;
+  max-height: 70vh;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 5px;
+}
+@media (max-width: 1180px) {
+  .popup__img {
+    max-width: 70vw;
+  }
+}
+@media (max-width: 768px) {
+  .popup__img {
+    max-width: 85vw;
+  }
+}
+.popup .socials {
+  height: 70px;
+}
+.popup-detail {
+  margin-top: 100px;
+  height: 90vh;
+}
+.popup-detail .popup__close {
+  top: 35px;
+  right: 35px;
+  color: #b3b3bf;
+}
+@media (max-width: 1024px) {
+  .popup-detail .popup__close {
+    top: 30px;
+    right: 20px;
+  }
+}
+.popup_video .popup__close:hover {
+  color: #180047;
+}
+@media (max-width: 767px) {
+  .popup_video .popup__close {
+    top: -15px;
   }
 }
 

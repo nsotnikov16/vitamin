@@ -79,12 +79,14 @@
     }
   }
 
-}
-
-#video {
-  .popup__close {
-    @media(max-width: 767px) {
-      top: -15px;
+  &_video {
+    .popup__close {
+      &:hover {
+        color: #180047;
+      }
+      @media (max-width: 767px) {
+        top: -15px;
+      }
     }
   }
 }
