@@ -32,6 +32,10 @@
             }
         }
     }
+
+    &_prices {
+        padding-bottom: 91px;
+    }
 }
 
 .phone {
@@ -127,4 +131,12 @@
 
 nav a:hover {
     color: red;
+}
+
+.logo {
+    transform: scale(1);
+    transition: transform 0.25s linear;
+    &:hover {
+        transform: scale(1.05);
+    }
 }

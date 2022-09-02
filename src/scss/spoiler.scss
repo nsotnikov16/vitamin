@@ -19,7 +19,7 @@
     margin-right: 20px;
   }
 
-  &__btn {
+  & > &__top > &__btn {
     transform: rotate(0);
     transition: transform 0.3s ease-in;
     &::before,
@@ -40,7 +40,7 @@
     }
   }
 
-  &__bottom {
+  & > &__bottom {
     max-height: 0;
     transform: translateY(-10%);
     overflow: hidden;
@@ -49,14 +49,14 @@
   }
 
   &_open {
-    .spoiler__bottom {
+    & > .spoiler__bottom {
       max-height: initial;
       transform: translateY(0);
       overflow: visible;
       opacity: 1;
     }
 
-    .spoiler__btn {
+    & > .spoiler__top > .spoiler__btn {
       transform: rotate(180deg);
       &::after {
         opacity: 0;
@@ -83,7 +83,7 @@
 }
 
 .spoilers {
- &_faq {
-  margin-bottom: 100px;
- }
+  &_faq {
+    margin-bottom: 100px;
+  }
 }

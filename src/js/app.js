@@ -66,11 +66,13 @@ if (form) {
 
     const inputs = form.querySelectorAll('input')
     const textareas = form.querySelectorAll('textarea')
-    Array.from([...inputs, ...textareas]).forEach(element => {
+    const formElements = Array.from([...inputs, ...textareas])
+    formElements.forEach(element => {
         const isTel = element.classList.contains('tel')
         const parent = element.parentNode
         const error = parent.querySelector('.form__error')
         const label = element.nextElementSibling
+        label.dataset.text = label.textContent
         if (error) error.dataset.text = error.textContent
         if (element.required) label.innerHTML = label.innerHTML + ' <span>*</span>'
         element.addEventListener('input', () => {
@@ -80,7 +82,16 @@ if (form) {
                 files = [...element.files]
                 let fileName = files[0].name
                 if (files.length > 0) {
-                    parent.insertAdjacentHTML('beforeend', `<div>${fileName.length > 40 ? '...' + fileName.slice(fileName.length - 40) : fileName}</div>`);
+                    const fileNameText = parent.querySelector('.form__filename')
+                    if (fileNameText) fileNameText.remove()
+                    parent.insertAdjacentHTML('beforeend', `<div class="form__filename">${fileName.length > 40 ? '...' + fileName.slice(fileName.length - 40) : fileName} <button type="button"></button></div>`);
+                    label.textContent = ''
+                    const button = parent.querySelector('.form__filename button')
+                    if (button) button.addEventListener('click', () => {
+                        parent.querySelector('.form__filename').remove()
+                        label.textContent = label.dataset.text
+                        files = []
+                    })
                 }
             }
 
@@ -119,6 +130,11 @@ if (form) {
 
         })
     })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+    })
 }
 
 /* Спойлеры */
@@ -128,4 +144,51 @@ if (spoilers.length > 0) {
         const top = spoiler.querySelector('.spoiler__top')
         top.addEventListener('click', () => spoiler.classList.toggle('spoiler_open'))
     })
+}
+
+
+// Плавный скролл
+const anchors = [].slice.call(document.querySelectorAll('.scroll')),
+    animationTime = 400,
+    framesCount = 20;
+
+function scroll(item) {
+    let element = document.querySelector(item.getAttribute('href'))
+    if (!element) return
+    // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
+    let coordY = element.getBoundingClientRect().top + window.pageYOffset;
+
+    // запускаем интервал, в котором
+    let scroller = setInterval(function () {
+        // считаем на сколько скроллить за 1 такт
+        let scrollBy = coordY / framesCount;
+
+        // если к-во пикселей для скролла за 1 такт больше расстояния до элемента
+        // и дно страницы не достигнуто
+        if (scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+
+            // то скроллим на к-во пикселей, которое соответствует одному такту
+            window.scrollBy(0, scrollBy);
+        } else {
+            // иначе добираемся до элемента и выходим из интервала
+            window.scrollTo(0, coordY);
+            clearInterval(scroller);
+        }
+        // время интервала равняется частному от времени анимации и к-ва кадров
+    }, animationTime / framesCount);
+
+}
+
+anchors.forEach(item => item.addEventListener('click', (e) => {
+    e.preventDefault()
+    scroll(item)
+}))
+
+function up() {
+    var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+    if (top > 0) {
+        window.scrollBy(0, ((top + 300) / -10));
+        t = setTimeout('up()', 20);
+    } else clearTimeout(t);
+    return false;
 }

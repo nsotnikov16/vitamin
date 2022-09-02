@@ -216,6 +216,28 @@
         }
     }
 
+    &__filename {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+
+        @media(max-width: 560px) {
+            font-size: 12px;
+        }
+
+        display: flex;
+        align-items: center;
+        button {
+            margin-left: 9px;
+            background-size: 13px 13px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(../img/cancel.svg);
+            width: 13px;
+            height: 13px;
+        }
+    }
+
     .btn_all {
         background-color: white;
         font-weight: 500;

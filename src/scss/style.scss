@@ -56,6 +56,9 @@ body {
 /* Контент */
 @import "content";
 
+/* Спойлеры */
+@import "spoiler";
+
 /* Шапка */
 @import "header";
 
@@ -68,6 +71,9 @@ body {
 /* Как мы это делаем? */
 @import "doit";
 
+/* Цены */
+@import "prices";
+
 /* Кейсы */
 @import "cases";
 
@@ -76,9 +82,6 @@ body {
 
 /* Достижения */
 @import "achievements";
-
-/* Спойлеры */
-@import "spoiler";
 
 /* Форма */
 @import "form";
