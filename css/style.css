@@ -646,9 +646,16 @@ nav a:hover {
   right: -35px;
   font-size: 35px;
   color: white;
+  background-color: transparent !important;
+}
+.popup__close span {
+  color: white;
 }
 .popup__close:hover {
-  color: #eb4961;
+  color: #180047;
+}
+.popup__close:hover span {
+  color: #180047;
 }
 @media (max-width: 767px) {
   .popup__close {
@@ -672,24 +679,6 @@ nav a:hover {
 @media (max-width: 768px) {
   .popup__img {
     max-width: 85vw;
-  }
-}
-.popup .socials {
-  height: 70px;
-}
-.popup-detail {
-  margin-top: 100px;
-  height: 90vh;
-}
-.popup-detail .popup__close {
-  top: 35px;
-  right: 35px;
-  color: #b3b3bf;
-}
-@media (max-width: 1024px) {
-  .popup-detail .popup__close {
-    top: 30px;
-    right: 20px;
   }
 }
 .popup_video .popup__close:hover {
@@ -2395,6 +2384,7 @@ nav a:hover {
   background-color: white;
   font-weight: 500;
   margin: 0;
+  color: #0b011d;
   flex-shrink: 0;
 }
 .form .btn_all:hover {
