@@ -26,7 +26,7 @@
     }
 
     &_faq {
-        padding-bottom: 90px;
+        padding-bottom: 90px !important;
         @media (max-width: 767px) {
             .section__title {
                 max-width: 320px;
@@ -35,8 +35,9 @@
     }
 
     &_prices {
-        padding-bottom: 91px;
+        padding-bottom: 91px !important;
     }
+    
 }
 
 .phone {

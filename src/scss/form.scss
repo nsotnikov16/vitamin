@@ -1,7 +1,7 @@
 .section {
     &_form {
         overflow: hidden;
-        padding-bottom: 127px;
+        padding-bottom: 127px !important;
         position: relative;
         .page__container {
             display: flex;
@@ -10,9 +10,9 @@
                 flex-direction: column;
             }
         }
-        > img {
+        > img, > picture img {
             position: absolute;
-            &:first-of-type {
+            &.img-dev-1 {
                 left: 0;
                 bottom: 83px;
                 width: 865px;
@@ -31,7 +31,7 @@
                 }
             }
 
-            &:last-of-type {
+            &.img-dev-2 {
                 right: -10px;
                 bottom: 0;
 

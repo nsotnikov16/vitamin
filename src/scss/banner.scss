@@ -1,5 +1,6 @@
 .banner {
     padding: 135px 0 140px;
+
     position: relative;
     &__title {
         font-weight: 700;
@@ -25,6 +26,7 @@
 
     @media (max-width: 1280px) {
         padding: 65px 0 115px;
+
         &__title {
             font-size: 60px;
         }
@@ -116,6 +118,10 @@
     }
 
     &_promotion {
+        padding-bottom: 50px !important;
+        @media (max-width: 1280px) {
+            padding-bottom: 0 !important;
+        }
         .banner__title {
             @media (min-width: 1281px) {
                 max-width: 756px;
@@ -175,24 +181,21 @@
 
             @media (max-width: 767px) {
                 right: 15px;
-                bottom: 40%;
+                bottom: 25%;
             }
 
-            @media (max-width: 560px) {
-                /* bottom: 25%; */
-            }
 
             @media (max-width: 420px) {
-                bottom: 40%;
+                bottom: 30%;
                 width: 130px;
             }
         }
     }
 
     &_dev {
-        padding-bottom: 50px;
+        padding-bottom: 50px !important;
         @media (max-width: 1280px) {
-            padding-bottom: 0;
+            padding-bottom: 0 !important;
         }
         .banner__title {
             @media (min-width: 1281px) {
@@ -277,9 +280,9 @@
                 display: initial;
             }
         }
-        padding-bottom: 50px;
+        padding-bottom: 50px !important;
         @media (max-width: 1280px) {
-            padding-bottom: 0;
+            padding-bottom: 0 !important;
         }
         .banner__title {
             @media (min-width: 1281px) {
