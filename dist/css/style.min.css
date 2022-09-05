@@ -649,10 +649,13 @@ nav a:hover {
   background-color: transparent !important;
 }
 .popup__close span {
-  color: white !important;
+  color: white;
 }
 .popup__close:hover {
-  color: #eb4961;
+  color: #180047;
+}
+.popup__close:hover span {
+  color: #180047;
 }
 @media (max-width: 767px) {
   .popup__close {
