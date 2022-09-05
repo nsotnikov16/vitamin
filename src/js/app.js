@@ -184,6 +184,7 @@ function scroll(item) {
 
 anchors.forEach(item => item.addEventListener('click', (e) => {
     e.preventDefault()
+    if(item.closest('.header')) header.className = 'header'
     scroll(item)
 }))
 
@@ -199,9 +200,6 @@ function up() {
 
 
 /* Нижняя панель на мобилке */
-const bottomPanel = document.querySelector('.panel')
-
-
 const panel = document.querySelector('.panel')
 if (panel) {
     const setPositionPanel = () => {
@@ -289,3 +287,4 @@ document.addEventListener('DOMContentLoaded', () => {
         arrPopups[item.id] = popup
     })
 })
+
