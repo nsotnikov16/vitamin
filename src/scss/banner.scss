@@ -15,7 +15,9 @@
         z-index: 3;
         opacity: 0;
     }
-    >img {
+    & > img,
+    & > picture,
+    & > .absolute-img {
         opacity: 0;
     }
 
@@ -188,7 +190,6 @@
                 right: 15px;
                 bottom: 25%;
             }
-
 
             @media (max-width: 420px) {
                 bottom: 30%;

@@ -351,3 +351,11 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
+/* const anim = lottie
+const a = anim.loadAnimation({
+    container: document.querySelector('#lottie-test'),
+    render: 'canvas',
+    loop: true,
+    autoplay: true, 
+    path: './js/lottie.json'
+}) */
