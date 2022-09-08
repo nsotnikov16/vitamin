@@ -57,7 +57,7 @@ body {
 @import "content";
 
 /* Модалки */
-@import 'popups';
+@import "popups";
 
 /* Спойлеры */
 @import "spoiler";
@@ -92,4 +92,9 @@ body {
 /* Подвал */
 @import "footer";
 
+//Панель мобилка
 @import "panel";
+
+
+//Анимации
+@import "aos";

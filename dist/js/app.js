@@ -12,6 +12,50 @@ testWebP(function (support) {
     document.documentElement.classList.add(className);
 });
 
+// Анимации
+
+function addAnimate(elementSelector, animations, every = false, everyDelay = false) {
+    const elements = Array.from(document.querySelectorAll(elementSelector))
+    if (!elements.length) return
+    elements.forEach(element => Object.entries(animations).forEach(animation => element.dataset[animation[0]] = animation[1]))
+    if (every && everyDelay) {
+        animations.aosDelay += everyDelay
+        elements.filter(element => element.dataset.aosDelay && element.dataset.aos).forEach((element, index) => {
+            if (index != 0) {
+                element.dataset.aosDelay = animations.aosDelay
+                animations.aosDelay += everyDelay
+            }
+        })
+    }
+}
+
+function customDelay(elementSelector, delay) {
+    const elements = document.querySelectorAll(elementSelector)
+    if (!elements.length) return
+    elements.forEach(element => {
+        element.classList.remove('aos-animate')
+        setTimeout(() => {
+            element.classList.add('aos-animate')
+        }, delay);
+    })
+}
+
+animations.forEach(animation => addAnimate(animation.selector, animation.animations, animation.every ?? false, animation.everyDelay ?? false))
+
+AOS.init({
+    once: true
+});
+
+// Запуск анимаций на старте (без прокрутки)
+document.addEventListener('DOMContentLoaded', () => {
+    customDelay('.banner__title', 200)
+    customDelay('.banner__subtitle', 300)
+    customDelay('.banner >img', 500)
+    customDelay('.doit .section__title', 200)
+    customDelay('.doit__info', 200)
+})
+
+/* Маска */
 window.addEventListener("DOMContentLoaded", function () {
     [].forEach.call(document.querySelectorAll('.tel'), function (input) {
         var keyCode;
@@ -60,6 +104,24 @@ burger.addEventListener('click', () => {
     if (header.classList.contains('open_fixed')) header.classList.remove('open_fixed')
 })
 
+
+/* Кнопка все кейсы */
+const btnAllCases = document.querySelector('.btn-cases')
+const cases = document.querySelectorAll('.case')
+const MAX_CASES = 8
+if (cases.length <= MAX_CASES) {
+    btnAllCases.remove()
+} else {
+    cases.forEach((item, index) => index + 1 > MAX_CASES ? item.style.display = 'none' : '')
+    btnAllCases.addEventListener('click', () => {
+        btnAllCases.remove()
+        cases.forEach((item, index) => index + 1 > MAX_CASES ? item.style.display = 'block' : '')
+    })
+}
+
+cases.forEach(item => {
+    item.addEventListener('mousemove', () => item.style.transitionDelay = '0s')
+})
 
 
 /* Форма */
@@ -184,7 +246,7 @@ function scroll(item) {
 
 anchors.forEach(item => item.addEventListener('click', (e) => {
     e.preventDefault()
-    if(item.closest('.header')) header.className = 'header'
+    if (item.closest('.header')) header.className = 'header'
     scroll(item)
 }))
 
@@ -287,4 +349,5 @@ document.addEventListener('DOMContentLoaded', () => {
         arrPopups[item.id] = popup
     })
 })
+
 
